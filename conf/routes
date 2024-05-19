@@ -1,0 +1,4 @@
+GET     /                           controllers.SampleController.callRoot(logLevel: Option[String] ?= None)
+GET     /other/:serviceName         controllers.SampleController.callOtherServiceRoot(serviceName, logLevel: Option[String] ?= None)
+GET     /cause-gc                       controllers.SampleController.causeGC
+GET     /cause-oom                      controllers.SampleController.causeOOM

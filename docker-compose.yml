@@ -1,0 +1,29 @@
+#Environment variables used are defined in .env file
+services:
+  service1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      SERVICE_NAME: ${SERVICE_ONE_NAME}
+      service1_URL: http://${SERVICE_ONE_NAME}:9000
+      service2_URL: http://${SERVICE_TWO_NAME}:9000
+    ports:
+      - "${SERVICE_ONE_PORT}:9000"
+
+  service2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      SERVICE_NAME: ${SERVICE_TWO_NAME}
+      service1_URL: http://${SERVICE_ONE_NAME}:9000
+      service2_URL: http://${SERVICE_TWO_NAME}:9000
+    ports:
+      - "${SERVICE_TWO_PORT}:9000"
+
+
