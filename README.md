@@ -8,4 +8,6 @@ To follow the blogs, checkout the to the commits.
 
 - [[Blog 1]Orchestrating Microservices with Docker Compose: A Scala and Play Framework Example](blog/blog-1.md)
 
+- [[Blog-2]Enhancing Observability in Microservices with OpenTelemetry](blog/blog-2.md)
+
 

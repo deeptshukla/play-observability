@@ -7,6 +7,12 @@ services:
     env_file:
       - .env
     environment:
+      JAVA_OPTS: "-Xms512m -Xmx624m -javaagent:/app/agents/opentelemetry-javaagent.jar"
+      OTEL_SERVICE_NAME: ${SERVICE_ONE_NAME}
+      OTEL_RESOURCE_ATTRIBUTES: "service=${SERVICE_ONE_NAME},service.name=${SERVICE_ONE_NAME},env=nalpha" # We can add more attributes in here which will be added to the trace/logs etc
+      OTEL_LOGS_EXPORTER: "console"
+      OTEL_METRICS_EXPORTER: "console" 
+      OTEL_TRACES_EXPORTER: "console" 
       SERVICE_NAME: ${SERVICE_ONE_NAME}
       service1_URL: http://${SERVICE_ONE_NAME}:9000
       service2_URL: http://${SERVICE_TWO_NAME}:9000
@@ -20,6 +26,12 @@ services:
     env_file:
       - .env
     environment:
+      JAVA_OPTS: "-Xms512m -Xmx624m -javaagent:/app/agents/opentelemetry-javaagent.jar"
+      OTEL_SERVICE_NAME: ${SERVICE_TWO_NAME}
+      OTEL_RESOURCE_ATTRIBUTES: "service=${SERVICE_TWO_NAME},service.name=${SERVICE_TWO_NAME},env=nalpha" # We can add more attributes in here which will be added to the trace/logs etc
+      OTEL_LOGS_EXPORTER: "console"
+      OTEL_METRICS_EXPORTER: "console" 
+      OTEL_TRACES_EXPORTER: "console" 
       SERVICE_NAME: ${SERVICE_TWO_NAME}
       service1_URL: http://${SERVICE_ONE_NAME}:9000
       service2_URL: http://${SERVICE_TWO_NAME}:9000

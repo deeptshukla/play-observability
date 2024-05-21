@@ -4,6 +4,8 @@ WORKDIR /app
 
 # Copy the built Play Framework application from the build stage
 COPY my-play-application-0.1.0 /app/my-play-application-0.1.0
+# Copy the otel java agent
+COPY agents /app/agents
 CMD ["/app/my-play-application-0.1.0/bin/my-play-application"]
 
 #Expose port 9000
